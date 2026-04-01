@@ -25,12 +25,12 @@ theme.loadSyntax = function()
 		Constant = { fg = nord.nord4_gui }, -- any constant
 		Character = { fg = nord.nord14_gui }, -- any character constant: 'c', '\n'
 		Number = { fg = nord.nord15_gui }, -- a number constant: 5
-		Boolean = { fg = nord.nord9_gui }, -- a boolean constant: TRUE, false
+		Boolean = { fg = nord.nord13_gui, style = bold }, -- a boolean constant: TRUE, false (골드로 분리)
 		Float = { fg = nord.nord15_gui }, -- a floating point constant: 2.3e10
 		Statement = { fg = nord.nord9_gui }, -- any statement
 		Label = { fg = nord.nord9_gui }, -- case, default, etc.
-		Operator = { fg = nord.nord9_gui }, -- sizeof", "+", "*", etc.
-		Exception = { fg = nord.nord9_gui }, -- try, catch, throw
+		Operator = { fg = nord.nord4_gui }, -- sizeof", "+", "*", etc. (일반 텍스트 톤, 키워드와 분리)
+		Exception = { fg = nord.nord9_gui }, -- try, catch, throw (하늘색 키워드)
 		PreProc = { fg = nord.nord9_gui }, -- generic Preprocessor
 		Include = { fg = nord.nord9_gui }, -- preprocessor #include
 		Define = { fg = nord.nord9_gui }, -- preprocessor #define
@@ -40,7 +40,7 @@ theme.loadSyntax = function()
 		Special = { fg = nord.nord4_gui }, -- any special symbol
 		SpecialChar = { fg = nord.nord13_gui }, -- special character in a constant
 		Tag = { fg = nord.nord4_gui }, -- you can use CTRL-] on this
-		Delimiter = { fg = nord.nord6_gui }, -- character that needs attention like , or .
+		Delimiter = { fg = nord.nord4_gui }, -- 구분자 (쉼표, 점 등 — 뉴트럴)
 		SpecialComment = { fg = nord.nord8_gui }, -- special things inside a comment
 		Debug = { fg = nord.nord11_gui }, -- debugging statements
 		Underlined = { fg = nord.nord14_gui, bg = nord.none, style = "underline" }, -- text that stands out, HTML links
@@ -86,8 +86,8 @@ theme.loadEditor = function()
 		Folded = { fg = nord.nord3_gui_bright, bg = nord.none, style = italic },
 		FoldColumn = { fg = nord.nord7_gui },
 		IncSearch = { fg = nord.nord6_gui, bg = nord.nord10_gui },
-		LineNr = { fg = nord.nord3_gui_bright },
-		CursorLineNr = { fg = nord.nord4_gui },
+		LineNr = { fg = "#787878" }, -- 배경보다 확실히 밝은 뉴트럴 그레이
+		CursorLineNr = { fg = "#e5c86e", style = bold }, -- 현재 줄은 골드로 강조
 		MatchParen = { fg = nord.nord15_gui, bg = nord.none, style = bold },
 		ModeMsg = { fg = nord.nord4_gui },
 		MoreMsg = { fg = nord.nord4_gui },
@@ -116,7 +116,7 @@ theme.loadEditor = function()
 		Title = { fg = nord.nord14_gui, bg = nord.none, style = bold },
 		Visual = { fg = nord.none, bg = nord.nord2_gui },
 		VisualNOS = { fg = nord.none, bg = nord.nord2_gui },
-		WarningMsg = { fg = nord.nord15_gui },
+		WarningMsg = { fg = nord.nord12_gui }, -- 경고는 오렌지 (nord15 보라가 아님)
 		WildMenu = { fg = nord.nord12_gui, bg = nord.none, style = bold },
 		CursorColumn = { fg = nord.none, bg = nord.cursorlinefg },
 		CursorLine = { fg = nord.none, bg = nord.cursorlinefg },
@@ -127,11 +127,11 @@ theme.loadEditor = function()
 		ReplacelMode = { fg = nord.nord11_gui, bg = nord.none, style = "reverse" },
 		VisualMode = { fg = nord.nord9_gui, bg = nord.none, style = "reverse" },
 		CommandMode = { fg = nord.nord4_gui, bg = nord.none, style = "reverse" },
-		Warnings = { fg = nord.nord15_gui },
+		Warnings = { fg = nord.nord12_gui }, -- 경고 오렌지
 
 		healthError = { fg = nord.nord11_gui },
 		healthSuccess = { fg = nord.nord14_gui },
-		healthWarning = { fg = nord.nord15_gui },
+		healthWarning = { fg = nord.nord12_gui },
 
 		-- dashboard
 		DashboardShortCut = { fg = nord.nord7_gui },
@@ -248,21 +248,21 @@ theme.loadTreeSitter = function()
 		TSNumber = { fg = nord.nord15_gui }, -- For all number
 		TSAttribute = { fg = nord.nord15_gui }, -- (unstable) TODO: docs
 		TSError = { fg = nord.nord11_gui }, -- For syntax/parser errors.
-		TSException = { fg = nord.nord15_gui }, -- For exception related keywords.
+		TSException = { fg = nord.nord9_gui }, -- 예외 키워드는 하늘색 (try/catch/throw)
 		TSFuncMacro = { fg = nord.nord7_gui }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
 		TSInclude = { fg = nord.nord9_gui }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-		TSLabel = { fg = nord.nord15_gui }, -- For labels: `label:` in C and `:label:` in Lua.
-		TSOperator = { fg = nord.nord9_gui }, -- For any operator: `+`, but also `->` and `*` in C.
+		TSLabel = { fg = nord.nord10_gui }, -- 레이블은 스틸 블루
+		TSOperator = { fg = nord.nord4_gui }, -- For any operator: `+`, but also `->` and `*` in C. (뉴트럴)
 		TSParameter = { fg = nord.nord10_gui }, -- For parameters of a function.
 		TSParameterReference = { fg = nord.nord10_gui }, -- For references to parameters of a function.
-		TSPunctDelimiter = { fg = nord.nord8_gui }, -- For delimiters ie: `.`
-		TSPunctBracket = { fg = nord.nord8_gui }, -- For brackets and parens.
-		TSPunctSpecial = { fg = nord.nord8_gui }, -- For special punctutation that does not fall in the catagories before.
+		TSPunctDelimiter = { fg = nord.nord4_gui }, -- 구분자 (뉴트럴 — 괄호/점이 초록이면 안됨)
+		TSPunctBracket = { fg = nord.nord4_gui }, -- 괄호 (뉴트럴)
+		TSPunctSpecial = { fg = nord.nord4_gui }, -- 특수 구두점 (뉴트럴)
 		TSSymbol = { fg = nord.nord15_gui }, -- For identifiers referring to symbols or atoms.
 		TSType = { fg = nord.nord9_gui }, -- For types.
 		TSTypeBuiltin = { fg = nord.nord9_gui }, -- For builtin types.
 		TSTag = { fg = nord.nord4_gui }, -- Tags like html tag names.
-		TSTagDelimiter = { fg = nord.nord15_gui }, -- Tag delimiter like `<` `>` `/`
+		TSTagDelimiter = { fg = nord.nord4_gui }, -- 태그 구분자 뉴트럴
 		TSText = { fg = nord.nord4_gui }, -- For strings considenord11_gui text in a markup language.
 		TSTextReference = { fg = nord.nord15_gui }, -- FIXME
 		TSEmphasis = { fg = nord.nord10_gui }, -- For text to be represented with emphasis.
@@ -276,20 +276,20 @@ theme.loadTreeSitter = function()
 		["@number"] = { fg = nord.nord15_gui },
 		["@attribute"] = { fg = nord.nord15_gui },
 		["@error"] = { fg = nord.nord11_gui },
-		["@exception"] = { fg = nord.nord15_gui },
+		["@exception"] = { fg = nord.nord9_gui }, -- 예외 키워드 하늘색
 		["@funtion.macro"] = { fg = nord.nord7_gui },
 		["@include"] = { fg = nord.nord9_gui },
-		["@label"] = { fg = nord.nord15_gui },
-		["@operator"] = { fg = nord.nord9_gui },
+		["@label"] = { fg = nord.nord10_gui }, -- 레이블 스틸 블루
+		["@operator"] = { fg = nord.nord4_gui }, -- 연산자는 뉴트럴 (키워드와 분리)
 		["@parameter"] = { fg = nord.nord10_gui },
-		["@punctuation.delimiter"] = { fg = nord.nord8_gui },
-		["@punctuation.bracket"] = { fg = nord.nord8_gui },
-		["@punctuation.special"] = { fg = nord.nord8_gui },
+		["@punctuation.delimiter"] = { fg = nord.nord4_gui }, -- 구분자 (뉴트럴)
+		["@punctuation.bracket"] = { fg = nord.nord4_gui }, -- 괄호 (뉴트럴)
+		["@punctuation.special"] = { fg = nord.nord4_gui }, -- 특수 구두점 (뉴트럴)
 		["@symbol"] = { fg = nord.nord15_gui },
 		["@type"] = { fg = nord.nord9_gui },
 		["@type.builtin"] = { fg = nord.nord9_gui },
 		["@tag"] = { fg = nord.nord4_gui },
-		["@tag.delimiter"] = { fg = nord.nord15_gui },
+		["@tag.delimiter"] = { fg = nord.nord4_gui }, -- 태그 구분자 뉴트럴
 		["@text"] = { fg = nord.nord4_gui },
 		["@text.reference"] = { fg = nord.nord15_gui, style = bold },
 		["@text.emphasis"] = { fg = nord.nord10_gui, style = italic },
@@ -314,7 +314,7 @@ theme.loadTreeSitter = function()
 	}
 
 	treesitter.TSVariableBuiltin = { fg = nord.nord4_gui, style = bold }
-	treesitter.TSBoolean = { fg = nord.nord9_gui, style = bold }
+	treesitter.TSBoolean = { fg = nord.nord13_gui, style = bold }
 	treesitter.TSConstBuiltin = { fg = nord.nord7_gui, style = bold }
 	treesitter.TSConstMacro = { fg = nord.nord7_gui, style = bold }
 	treesitter.TSVariable = { fg = nord.nord4_gui, style = bold }
@@ -322,7 +322,7 @@ theme.loadTreeSitter = function()
 	treesitter["@variable"] = { fg = nord.nord4_gui, style = bold }
 	treesitter["@variable.builtin"] = { fg = nord.nord4_gui, style = bold }
 	treesitter["@variable.global"] = { fg = nord.nord4_gui, style = bold }
-	treesitter["@boolean"] = { fg = nord.nord9_gui, style = bold }
+	treesitter["@boolean"] = { fg = nord.nord13_gui, style = bold }
 	treesitter["@constant.builtin"] = { fg = nord.nord7_gui, style = bold }
 	treesitter["@constant.macro"] = { fg = nord.nord7_gui, style = bold }
 	treesitter["@text.title"] = { fg = nord.nord10_gui, bg = nord.none, style = bold }
@@ -333,40 +333,40 @@ theme.loadTreeSitter = function()
 	treesitter.TSConditional = { fg = nord.nord9_gui, style = italic } -- For keywords related to conditionnals.
 	-- Function names
 	treesitter.TSFunction = { fg = nord.nord8_gui, style = italic } -- For fuction (calls and definitions).
-	treesitter.TSMethod = { fg = nord.nord7_gui, style = italic } -- For method calls and definitions.
+	treesitter.TSMethod = { fg = nord.nord8_gui, style = italic } -- 메소드도 함수와 같은 시안
 	treesitter.TSFuncBuiltin = { fg = nord.nord8_gui, style = italic }
 	-- Namespaces and property accessors
 	treesitter.TSNamespace = { fg = nord.nord4_gui, style = italic } -- For identifiers referring to modules and namespaces.
-	treesitter.TSField = { fg = nord.nord4_gui, style = italic } -- For fields.
+	treesitter.TSField = { fg = nord.nord10_gui, style = italic } -- For fields.
 	treesitter.TSProperty = { fg = nord.nord10_gui, style = italic } -- Same as `TSField`, but when accessing, not declaring.
 	-- Language keywords
 	treesitter.TSKeyword = { fg = nord.nord9_gui, style = italic } -- For keywords that don't fall in other categories.
-	treesitter.TSKeywordFunction = { fg = nord.nord8_gui, style = italic }
-	treesitter.TSKeywordReturn = { fg = nord.nord8_gui, style = italic }
-	treesitter.TSKeywordOperator = { fg = nord.nord8_gui, style = italic }
+	treesitter.TSKeywordFunction = { fg = nord.nord9_gui, style = italic } -- function 키워드도 하늘색
+	treesitter.TSKeywordReturn = { fg = nord.nord9_gui, style = italic } -- return 키워드도 하늘색
+	treesitter.TSKeywordOperator = { fg = nord.nord9_gui, style = italic } -- or, and, not 은 키워드 하늘색
 	treesitter.TSRepeat = { fg = nord.nord9_gui, style = italic } -- For keywords related to loops.
 	-- Strings
 	treesitter.TSString = { fg = nord.nord14_gui, style = italic } -- For strings.
 	treesitter.TSStringRegex = { fg = nord.nord7_gui, style = italic } -- For regexes.
-	treesitter.TSStringEscape = { fg = nord.nord15_gui, style = italic } -- For escape characters within a string.
+	treesitter.TSStringEscape = { fg = nord.nord13_gui, style = italic } -- 이스케이프 문자는 골드 (\n, \t 등)
 	treesitter.TSCharacter = { fg = nord.nord14_gui, style = italic } -- For characters.
 
 	treesitter["@comment"] = { fg = nord.nord3_gui_bright, style = italic }
 	treesitter["@conditional"] = { fg = nord.nord9_gui, style = italic }
 	treesitter["@function"] = { fg = nord.nord8_gui, style = italic }
-	treesitter["@method"] = { fg = nord.nord8_gui, style = italic }
+	treesitter["@method"] = { fg = nord.nord8_gui, style = italic } -- 메소드 = 함수 색 통일
 	treesitter["@function.builtin"] = { fg = nord.nord8_gui, style = italic }
 	treesitter["@namespace"] = { fg = nord.nord4_gui, style = italic }
-	treesitter["@field"] = { fg = nord.nord4_gui, style = italic }
+	treesitter["@field"] = { fg = nord.nord10_gui, style = italic }
 	treesitter["@property"] = { fg = nord.nord10_gui, style = italic }
 	treesitter["@keyword"] = { fg = nord.nord9_gui, style = italic }
-	treesitter["@keyword.function"] = { fg = nord.nord8_gui, style = italic }
-	treesitter["@keyword.return"] = { fg = nord.nord8_gui, style = italic }
-	treesitter["@keyword.operator"] = { fg = nord.nord8_gui, style = italic }
+	treesitter["@keyword.function"] = { fg = nord.nord9_gui, style = italic } -- function 키워드 하늘색
+	treesitter["@keyword.return"] = { fg = nord.nord9_gui, style = italic } -- return 키워드 하늘색
+	treesitter["@keyword.operator"] = { fg = nord.nord9_gui, style = italic }
 	treesitter["@repeat"] = { fg = nord.nord9_gui, style = italic }
 	treesitter["@string"] = { fg = nord.nord14_gui, style = italic }
 	treesitter["@string.regex"] = { fg = nord.nord7_gui, style = italic }
-	treesitter["@string.escape"] = { fg = nord.nord15_gui, style = italic }
+	treesitter["@string.escape"] = { fg = nord.nord13_gui, style = italic } -- 이스케이프 골드
 	treesitter["@character"] = { fg = nord.nord14_gui, style = italic }
 
 	return treesitter
@@ -398,11 +398,11 @@ theme.loadLSP = function()
 		LspDiagnosticsFloatingError = { fg = nord.nord11_gui }, -- used for "Error" diagnostic messages in the diagnostics float
 		LspDiagnosticsVirtualTextError = { fg = nord.nord11_gui }, -- Virtual text "Error"
 		LspDiagnosticsUnderlineError = { style = "undercurl", sp = nord.nord11_gui }, -- used to underline "Error" diagnostics.
-		LspDiagnosticsDefaultWarning = { fg = nord.nord15_gui }, -- used for "Warning" diagnostic signs in sign column
-		LspDiagnosticsSignWarning = { fg = nord.nord15_gui }, -- used for "Warning" diagnostic signs in sign column
-		LspDiagnosticsFloatingWarning = { fg = nord.nord15_gui }, -- used for "Warning" diagnostic messages in the diagnostics float
-		LspDiagnosticsVirtualTextWarning = { fg = nord.nord15_gui }, -- Virtual text "Warning"
-		LspDiagnosticsUnderlineWarning = { style = "undercurl", sp = nord.nord15_gui }, -- used to underline "Warning" diagnostics.
+		LspDiagnosticsDefaultWarning = { fg = nord.nord12_gui }, -- 경고 오렌지
+		LspDiagnosticsSignWarning = { fg = nord.nord12_gui },
+		LspDiagnosticsFloatingWarning = { fg = nord.nord12_gui },
+		LspDiagnosticsVirtualTextWarning = { fg = nord.nord12_gui },
+		LspDiagnosticsUnderlineWarning = { style = "undercurl", sp = nord.nord12_gui },
 		LspDiagnosticsDefaultInformation = { fg = nord.nord10_gui }, -- used for "Information" diagnostic virtual text
 		LspDiagnosticsSignInformation = { fg = nord.nord10_gui }, -- used for "Information" diagnostic signs in sign column
 		LspDiagnosticsFloatingInformation = { fg = nord.nord10_gui }, -- used for "Information" diagnostic messages in the diagnostics float
@@ -517,7 +517,7 @@ theme.loadPlugins = function()
 		NvimTreeGitDeleted = { fg = nord.nord11_gui },	-- diff mode: Deleted line |diff.txt|
 		NvimTreeGitIgnored = { fg = nord.nord3_gui_bright },
 		LspDiagnosticsError = { fg = nord.nord12_gui },
-		LspDiagnosticsWarning = { fg = nord.nord15_gui },
+		LspDiagnosticsWarning = { fg = nord.nord12_gui }, -- 경고 오렌지
 		LspDiagnosticsInformation = { fg = nord.nord10_gui },
 		LspDiagnosticsHint = { fg = nord.nord9_gui },
 
@@ -532,7 +532,7 @@ theme.loadPlugins = function()
 
 		-- LspSaga
 		DiagnosticError = { fg = nord.nord12_gui },
-		DiagnosticWarning = { fg = nord.nord15_gui },
+		DiagnosticWarning = { fg = nord.nord12_gui }, -- 경고 오렌지
 		DiagnosticInformation = { fg = nord.nord10_gui },
 		DiagnosticHint = { fg = nord.nord9_gui },
 		DiagnosticTruncateLine = { fg = nord.nord4_gui },
@@ -788,7 +788,7 @@ theme.loadPlugins = function()
 		AerialFunctionIcon = vim.g.nord_italic and { fg = nord.nord8_gui, style = italic } or { fg = nord.nord8_gui },
 		AerialInterfaceIcon = { fg = nord.nord9_gui },
 		AerialKeyIcon = { fg = nord.nord9_gui },
-		AerialMethodIcon = vim.g.nord_italic and { fg = nord.nord7_gui, style = italic } or { fg = nord.nord7_gui },
+		AerialMethodIcon = vim.g.nord_italic and { fg = nord.nord8_gui, style = italic } or { fg = nord.nord8_gui },
 		AerialModuleIcon = vim.g.nord_italic and { fg = nord.nord4_gui, style = italic } or { fg = nord.nord4_gui },
 		AerialNamespaceIcon = vim.g.nord_italic and { fg = nord.nord4_gui, style = italic }
 			or { fg = nord.nord4_gui },
@@ -817,7 +817,7 @@ theme.loadPlugins = function()
 		AerialFunction = vim.g.nord_italic and { fg = nord.nord8_gui, style = italic } or { fg = nord.nord8_gui },
 		AerialInterface = { fg = nord.nord9_gui },
 		AerialKey = { fg = nord.nord9_gui },
-		AerialMethod = vim.g.nord_italic and { fg = nord.nord7_gui, style = italic } or { fg = nord.nord7_gui },
+		AerialMethod = vim.g.nord_italic and { fg = nord.nord8_gui, style = italic } or { fg = nord.nord8_gui },
 		AerialModule = vim.g.nord_italic and { fg = nord.nord4_gui, style = italic } or { fg = nord.nord4_gui },
 		AerialNamespace = vim.g.nord_italic and { fg = nord.nord4_gui, style = italic } or { fg = nord.nord4_gui },
 		AerialNull = { fg = nord.nord9_gui },
@@ -845,7 +845,7 @@ theme.loadPlugins = function()
 		NavicIconsFunction = { fg = nord.nord8_gui, style = italic },
 		NavicIconsInterface = { fg = nord.nord9_gui },
 		NavicIconsKey = { fg = nord.nord9_gui },
-		NavicIconsMethod = { fg = nord.nord7_gui, style = italic },
+		NavicIconsMethod = { fg = nord.nord8_gui, style = italic },
 		NavicIconsModule = { fg = nord.nord4_gui, style = italic },
 		NavicIconsNamespace = { fg = nord.nord4_gui, style = italic },
 		NavicIconsNull = { fg = nord.nord9_gui },
