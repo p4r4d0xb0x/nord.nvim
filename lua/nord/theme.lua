@@ -839,17 +839,17 @@ theme.loadPlugins = function()
 		AerialVariable = { fg = nord.nord4_gui, style = bold },
 
 		-- Snacks.nvim (explorer/picker)
-		SnacksPickerPathIgnored = { fg = "#8B3A3A" }, -- gitignored files/dirs (muted dark red)
-		SnacksPickerPathHidden = { fg = "#8B3A3A" }, -- hidden (dot) files/dirs (muted dark red)
-		SnacksPickerGitStatusAdded = { fg = "#8B3A3A" }, -- git added (muted dark red)
-		SnacksPickerGitStatusModified = { fg = "#8B3A3A" }, -- git modified (muted dark red)
-		SnacksPickerGitStatusDeleted = { fg = "#8B3A3A" }, -- git deleted (muted dark red)
-		SnacksPickerGitStatusRenamed = { fg = "#8B3A3A" }, -- git renamed (muted dark red)
-		SnacksPickerGitStatusCopied = { fg = "#8B3A3A" }, -- git copied (muted dark red)
-		SnacksPickerGitStatusUntracked = { fg = "#8B3A3A" }, -- git untracked (muted dark red)
-		SnacksPickerGitStatusIgnored = { fg = "#8B3A3A" }, -- git ignored (muted dark red)
-		SnacksPickerGitStatusUnmerged = { fg = "#8B3A3A" }, -- git unmerged (muted dark red)
-		SnacksPickerGitStatusStaged = { fg = "#8B3A3A" }, -- git staged (muted dark red)
+		SnacksPickerPathIgnored = { fg = "#6B5B5B" }, -- gitignored paths (muted gray-brown)
+		SnacksPickerPathHidden = { fg = "#6B5B5B" }, -- hidden dot paths (muted gray-brown)
+		SnacksPickerGitStatusAdded = { fg = "#6B8F6B" }, -- git added (muted green)
+		SnacksPickerGitStatusModified = { fg = "#B08855" }, -- git modified (muted amber)
+		SnacksPickerGitStatusDeleted = { fg = "#A04545" }, -- git deleted (muted red)
+		SnacksPickerGitStatusRenamed = { fg = "#6080A0" }, -- git renamed (muted blue)
+		SnacksPickerGitStatusCopied = { fg = "#5B8B8B" }, -- git copied (muted cyan)
+		SnacksPickerGitStatusUntracked = { fg = "#8B6B8B" }, -- git untracked (muted purple)
+		SnacksPickerGitStatusIgnored = { fg = "#6B5B5B" }, -- git ignored (muted gray-brown)
+		SnacksPickerGitStatusUnmerged = { fg = "#BF616A" }, -- git unmerged/conflict (nord red)
+		SnacksPickerGitStatusStaged = { fg = "#5B8B7B" }, -- git staged (muted teal)
 
 		-- nvim-navic
 		NavicIconsArray = { fg = nord.nord13_gui },
