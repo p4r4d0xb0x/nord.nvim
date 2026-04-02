@@ -44,7 +44,7 @@ theme.loadSyntax = function()
 		SpecialComment = { fg = nord.nord8_gui }, -- special things inside a comment
 		Debug = { fg = nord.nord11_gui }, -- debugging statements
 		Underlined = { fg = nord.nord14_gui, bg = nord.none, style = "underline" }, -- text that stands out, HTML links
-		Ignore = { fg = nord.nord1_gui }, -- left blank, hidden
+		Ignore = { fg = nord.nord3_gui }, -- left blank, hidden (nord3로 올려 가시성 확보)
 		Todo = { fg = nord.nord13_gui, bg = nord.none, style = bold_italic }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 		Conceal = { fg = nord.none, bg = nord.nord0_gui },
 		htmlLink = { fg = nord.nord14_gui, style = "underline" },
@@ -75,7 +75,7 @@ theme.loadEditor = function()
 
 	local editor = {
 		NormalFloat = { fg = nord.nord4_gui, bg = nord.float }, -- normal text and background color
-		FloatBorder = { fg = nord.nord3_gui, bg = nord.float }, -- 은은한 테두리 (본문보다 어둡게)
+		FloatBorder = { fg = "#bebfc2", bg = nord.float }, -- 플로팅 창 테두리 (InlayHint 수준 가시성)
 		WinSeparator = { fg = nord.nord2_gui }, -- 창 구분선 (부드러운 그레이)
 		ColorColumn = { fg = nord.none, bg = nord.nord1_gui }, -- used for the columns set with 'colorcolumn'
 		Conceal = { fg = nord.nord1_gui }, -- placeholder characters substituted for concealed text (see 'conceallevel')
@@ -87,7 +87,7 @@ theme.loadEditor = function()
 		Folded = { fg = nord.nord3_gui_bright, bg = nord.none, style = italic },
 		FoldColumn = { fg = nord.nord7_gui },
 		IncSearch = { fg = nord.nord6_gui, bg = nord.nord10_gui },
-		LineNr = { fg = "#787878" }, -- 배경보다 확실히 밝은 뉴트럴 그레이
+		LineNr = { fg = "#747578" }, -- 배경보다 확실히 밝은 은은한 쿨 그레이
 		CursorLineNr = { fg = "#e5c86e", style = bold }, -- 현재 줄은 골드로 강조
 		MatchParen = { fg = nord.nord15_gui, bg = nord.none, style = bold },
 		ModeMsg = { fg = nord.nord4_gui },
@@ -150,11 +150,11 @@ theme.loadEditor = function()
 		BufferCurrentIndex = { bg = nord.nord1_gui },
 		BufferCurrentTarget = { bg = nord.nord1_gui, fg = nord.nord11_gui },
 
-		BufferInactive = { bg = nord.nord0_gui, fg = nord.nord3_gui },
+		BufferInactive = { bg = nord.nord0_gui, fg = "#bebfc2" },
 		BufferInactiveMod = { bg = nord.nord0_gui, fg = nord.nord15_gui },
-		BufferInactiveIcon = { bg = nord.nord0_gui, fg = nord.nord3_gui },
-		BufferInactiveSign = { bg = nord.nord0_gui, fg = nord.nord3_gui },
-		BufferInactiveIndex = { bg = nord.nord0_gui, fg = nord.nord3_gui },
+		BufferInactiveIcon = { bg = nord.nord0_gui, fg = "#bebfc2" },
+		BufferInactiveSign = { bg = nord.nord0_gui, fg = "#bebfc2" },
+		BufferInactiveIndex = { bg = nord.nord0_gui, fg = "#bebfc2" },
 		BufferInactiveTarget = { bg = nord.nord0_gui, fg = nord.nord11_gui },
 
 		BufferVisible = { bg = nord.nord2_gui },
@@ -165,9 +165,9 @@ theme.loadEditor = function()
 		BufferVisibleTarget = { bg = nord.nord2_gui, fg = nord.nord11_gui },
 
 		-- nvim-notify
-		NotifyDEBUGBorder = { fg = nord.nord3_gui },
-		NotifyDEBUGIcon = { fg = nord.nord3_gui },
-		NotifyDEBUGTitle = { fg = nord.nord3_gui },
+		NotifyDEBUGBorder = { fg = "#bebfc2" },
+		NotifyDEBUGIcon = { fg = "#bebfc2" },
+		NotifyDEBUGTitle = { fg = "#bebfc2" },
 		NotifyERRORBorder = { fg = nord.nord11_gui },
 		NotifyERRORIcon = { fg = nord.nord11_gui },
 		NotifyERRORTitle = { fg = nord.nord11_gui },
@@ -418,6 +418,11 @@ theme.loadLSP = function()
 		LspReferenceRead = { fg = nord.nord4_gui, bg = nord.nord1_gui }, -- used for highlighting "read" references
 		LspReferenceWrite = { fg = nord.nord4_gui, bg = nord.nord1_gui }, -- used for highlighting "write" references
 
+		-- InlayHint (LSP 타입/파라미터 힌트 — 주석보다 밝고 텍스트보다 어두운 보조 정보)
+		LspInlayHint = { fg = "#bebfc2", bg = "NONE" }, -- 텍스트와 주석 사이 보조 정보
+		-- Neovim 0.10+ 네이티브 InlayHint
+		InlayHint = { fg = "#bebfc2", bg = "NONE" },
+
 		DiagnosticError = { link = "LspDiagnosticsDefaultError" },
 		DiagnosticWarn = { link = "LspDiagnosticsDefaultWarning" },
 		DiagnosticInfo = { link = "LspDiagnosticsDefaultInformation" },
@@ -460,7 +465,7 @@ theme.loadPlugins = function()
 		diffOldFile = { fg = nord.yellow },
 		diffNewFile = { fg = nord.nord12_gui },
 		diffFile = { fg = nord.nord7_gui },
-		diffLine = { fg = nord.nord3_gui },
+		diffLine = { fg = "#bebfc2" },
 		diffIndexLine = { fg = nord.nord9_gui },
 
 		-- Neogit
@@ -631,14 +636,15 @@ theme.loadPlugins = function()
 
 		-- headline
 		-- bg = (10 * nord0 + fg) / 11
-		Headline1 = { fg = nord.nord12_gui, bg = "#3d3c44", bold = true },
-		Headline2 = { fg = nord.nord13_gui, bg = "#3f4247", bold = true },
-		Headline3 = { fg = nord.nord14_gui, bg = "#394147", bold = true },
-		Headline4 = { fg = nord.nord9_gui, bg = "#363e4c", bold = true },
-		Headline5 = { fg = nord.nord15_gui, bg = "#3a3c4a", bold = true },
-		Headline6 = { fg = nord.nord4_gui, bg = "#3d434f", bold = true },
+		-- bg = (10 * nord0(#3a3b3e) + fg) / 11
+		Headline1 = { fg = nord.nord12_gui, bg = "#483f42", bold = true },
+		Headline2 = { fg = nord.nord13_gui, bg = "#4a4542", bold = true },
+		Headline3 = { fg = nord.nord14_gui, bg = "#474043", bold = true },
+		Headline4 = { fg = nord.nord9_gui, bg = "#3d424a", bold = true },
+		Headline5 = { fg = nord.nord15_gui, bg = "#454148", bold = true },
+		Headline6 = { fg = nord.nord4_gui, bg = "#49484d", bold = true },
 
-		Quote = { fg = nord.nord2_gui },
+		Quote = { fg = "#bebfc2" },
 		CodeBlock = { bg = nord.nord1_gui },
 		Dash = { nord.nord10_gui, bold = true },
 
@@ -718,7 +724,7 @@ theme.loadPlugins = function()
 		CopilotLabel = { fg = nord.nord3_gui, bg = nord.none },
 
 		-- Statusline
-		StatusLineDull = { fg = nord.nord3_gui, bg = nord.nord1_gui },
+		StatusLineDull = { fg = "#bebfc2", bg = nord.nord1_gui },
 		StatusLineAccent = { fg = nord.nord0_gui, bg = nord.nord13_gui },
 
 		-- mini.nvim
