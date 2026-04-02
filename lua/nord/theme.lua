@@ -841,7 +841,15 @@ theme.loadPlugins = function()
 		-- Snacks.nvim (explorer/picker)
 		SnacksPickerPathIgnored = { fg = "#8B3A3A" }, -- gitignored files/dirs (muted dark red)
 		SnacksPickerPathHidden = { fg = "#8B3A3A" }, -- hidden (dot) files/dirs (muted dark red)
+		SnacksPickerGitStatusAdded = { fg = "#8B3A3A" }, -- git added (muted dark red)
 		SnacksPickerGitStatusModified = { fg = "#8B3A3A" }, -- git modified (muted dark red)
+		SnacksPickerGitStatusDeleted = { fg = "#8B3A3A" }, -- git deleted (muted dark red)
+		SnacksPickerGitStatusRenamed = { fg = "#8B3A3A" }, -- git renamed (muted dark red)
+		SnacksPickerGitStatusCopied = { fg = "#8B3A3A" }, -- git copied (muted dark red)
+		SnacksPickerGitStatusUntracked = { fg = "#8B3A3A" }, -- git untracked (muted dark red)
+		SnacksPickerGitStatusIgnored = { fg = "#8B3A3A" }, -- git ignored (muted dark red)
+		SnacksPickerGitStatusUnmerged = { fg = "#8B3A3A" }, -- git unmerged (muted dark red)
+		SnacksPickerGitStatusStaged = { fg = "#8B3A3A" }, -- git staged (muted dark red)
 
 		-- nvim-navic
 		NavicIconsArray = { fg = nord.nord13_gui },
