@@ -838,6 +838,11 @@ theme.loadPlugins = function()
 		AerialTypeParameter = { fg = nord.nord10_gui },
 		AerialVariable = { fg = nord.nord4_gui, style = bold },
 
+		-- Snacks.nvim (explorer/picker)
+		SnacksPickerPathIgnored = { fg = "#8B3A3A" }, -- gitignored files/dirs (muted dark red)
+		SnacksPickerPathHidden = { fg = "#8B3A3A" }, -- hidden (dot) files/dirs (muted dark red)
+		SnacksPickerGitStatusModified = { fg = "#8B3A3A" }, -- git modified (muted dark red)
+
 		-- nvim-navic
 		NavicIconsArray = { fg = nord.nord13_gui },
 		NavicIconsBoolean = { fg = nord.nord9_gui, style = bold },
